@@ -27,7 +27,7 @@ let persons = JSON.parse(personasJSON);
 //Otra forma de usar filter
 let personsMayor18 = persons.filter(person => person.edad > 18);
 
-let personsMayor18_bis = persons.filter(function(person) {
+let personsMayor18_bis = persons.filter(function (person) {
     return person.edad > 18;
 });
 
@@ -44,27 +44,27 @@ en el HTML (es decir, generar el contenido de forma dinámica).
 */
 
 //Traigo el elemento que voy a utilizar
-const bodyElement = document.querySelector("body");
+const body = document.querySelector("body");
 
-personsMayor18.forEach(function(person, index) {
+personsMayor18.forEach(function (person, index) {
     //Creo 2 span, uno para el nombre y otro para edad
-    let nombreElemento = document.createElement("span");
-    let edadElemento = document.createElement("span");
+    let spanNombre = document.createElement("span");
+    let spanEdad = document.createElement("span");
     //Creo 1 parrafo para agregarlos ahí
-    let parrafoElemento = document.createElement("p");
+    let parrafo = document.createElement("p");
 
     //Seteo los span con los valores del array
-    nombreElemento.textContent = person.nombre;
-    edadElemento.textContent = person.edad;
+    spanNombre.textContent = person.nombre;
+    spanEdad.textContent = person.edad;
 
     //Seteo lso valores del parrafo y le agrego los span 
-    parrafoElemento.innerHTML = "Nombre: ";
-    parrafoElemento.appendChild(nombreElemento);
-    parrafoElemento.innerHTML += "<br>Edad: ";
-    parrafoElemento.appendChild(edadElemento);
+    parrafo.innerHTML = "Nombre: ";
+    parrafo.appendChild(spanNombre);
+    parrafo.innerHTML += "<br>Edad: ";
+    parrafo.appendChild(spanEdad);
 
     //Inserto todo dentro del body
-    bodyElement.appendChild(parrafoElemento);
+    body.appendChild(parrafo);
 
 });
 
@@ -78,4 +78,51 @@ se dispare al presionar un botón en el HTML que usted agregue.
 
 */
 
+let containerDiv = document.createElement("div");
+let divSeparator = document.createElement("div");
+let space = document.createElement("br");
 
+let myInput = document.createElement("input");
+myInput.setAttribute("type", "text");
+myInput.setAttribute("placeholder", "edad")
+myInput.setAttribute("value", "")
+
+let h1 = document.createElement("h1");
+h1.innerHTML = "Ingrese una edad"
+
+let myButton = document.createElement("button");
+myButton.setAttribute("id", "enviar")
+myButton.textContent = "enviar"
+myButton.setAttribute("type", "button")
+
+containerDiv.appendChild(h1)
+containerDiv.appendChild(myInput)
+containerDiv.appendChild(divSeparator)
+
+divSeparator.appendChild(myButton)
+
+body.appendChild(containerDiv)
+body.appendChild(space)
+body.appendChild(divSeparator)
+
+//Presionando enter en el input
+myInput.onkeydown = function (event) {
+    if (event.key === "Enter") {
+        var valor = myInput.value;
+        if (valor > 18) {
+            alert("MAYOR a 18")
+        } else {
+            alert("MENOR a 18")
+        }
+    }
+}
+
+//Presionando el boton creado "enviar"
+myButton.onclick = function () {
+    var valor = myInput.value;
+    if (valor > 18) {
+        alert("MAYOR a 18")
+    } else {
+        alert("MENOR a 18")
+    }
+}
