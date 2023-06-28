@@ -57,7 +57,7 @@ console.log("----------------------------------------");
 console.log("Usando sintaxis de objetos");
 
 //Guarda una clave
-localStorage.numeroPrueba = 5;
+localStorage.numeroPrueba = 15;
  
 //Leer una clave
 console.log(localStorage.numeroPrueba); // 5

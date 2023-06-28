@@ -25,25 +25,53 @@ console.log(producto2.id);  // 2
 console.log("----------------------------------------");
 console.log("Estructura de un JSON complejo");
 
-const jsonPokemon = {
-       "id": 1,
-       "name": "bulbasaur",
-       "types": [
-           {
-               "slot": 1,
-               "type": {
-                   "name": "grass"
-               }
-           },
-           {
-               "slot": 2,
-               "type": {
-                   "name": "poison"
-               }
-           }
-       ]
-    }
+const jsonPokemon = [{
+    "id": 1,
+    "name": "bulbasaur",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "grass"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "poison"
+            }
+        }
+    ]
+},
+{
+    "id": 3,
+    "name": "Fernando",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "test"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "test 123"
+            }
+        }
+    ]
+}]
+
+//Vamos a inspeccionar el JSON
+
+let types = jsonPokemon.map(function(currentValue, index){
+    return {"type" : currentValue.types[index].type.name,
+            "slot" : currentValue.types[index].slot.name}
+});
+
 
 console.log(JSON.stringify(jsonPokemon));
- 
+console.log(JSON.stringify(jsonPokemon.length));
+console.log(JSON.stringify(types));
+
 

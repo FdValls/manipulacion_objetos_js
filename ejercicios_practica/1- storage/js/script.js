@@ -21,6 +21,33 @@ con los datos almacenados en memoria, a fin de darle la bienvenida al usuario lo
 
 */
 
+const button = document.getElementById("btnIngresar")
+const user = document.getElementById("usuario")
+const email = document.getElementById("email")
+const txtUserLogin = document.getElementById("usuarioLogeado")
+const txtEmailLogin = document.getElementById("emailLogeado")
+const login = document.getElementById("login")
+
+button.onclick = () => {
+    //Leo los datos ingresados en "usuario" y "email".
+    let valueEmail = email.value
+    let valueUser = user.value
+
+    //Almaceno en memoria permanente del explorador.
+    localStorage.setItem("user ", valueUser)
+    localStorage.setItem("email ", valueEmail)
+
+    //Completo las etiquetas <p> de id "usuarioLogeado" y "emailLogeado"
+    txtUserLogin.textContent = valueUser
+    txtEmailLogin.textContent = valueEmail
+
+    console.log(valueUser)
+    console.log(valueEmail)
+
+
+  };
+  
+  
 /* 2 - Enunciado
 
 - Al comenzar el script se debe verificar si en memoria se encuentran
@@ -31,6 +58,14 @@ almacenados los datos de "usuario" y "email".
 y deberá revelar la sección "logout" (quitar la clase hidden).
 
 */
+console.log(localStorage.length)
+
+if(localStorage.length > 0){
+    txtUserLogin.textContent = localStorage.getItem("user")
+    txtEmailLogin.textContent = localStorage.getItem("email")
+    // login.classList.add("hidden")
+}
+
 
 /* 3 - Enunciado
 
