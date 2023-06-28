@@ -38,8 +38,8 @@ var valueUser = ""
 
 buttonLogin.onclick = () => {
     //Leo los datos ingresados en "usuario" y "email".
-    valueEmail = user.value
-    valueUser = email.value
+    valueUser = user.value
+    valueEmail = email.value
 
     //Almaceno en memoria permanente del explorador.
     localStorage.setItem("user", valueUser)
