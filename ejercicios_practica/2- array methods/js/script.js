@@ -49,9 +49,9 @@ const bodyElement = document.querySelector("body");
 personsMayor18.forEach(function(person, index) {
     //Creo 2 span, uno para el nombre y otro para edad
     let nombreElemento = document.createElement("span");
-    var edadElemento = document.createElement("span");
+    let edadElemento = document.createElement("span");
     //Creo 1 parrafo para agregarlos ahí
-    var parrafoElemento = document.createElement("p");
+    let parrafoElemento = document.createElement("p");
 
     //Seteo los span con los valores del array
     nombreElemento.textContent = person.nombre;
@@ -77,3 +77,5 @@ que sea un valor que se toma del HTML (un input).
 se dispare al presionar un botón en el HTML que usted agregue.
 
 */
+
+
